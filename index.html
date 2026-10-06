@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="bn"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>টেস্ট শপ</title>
+<!-- GTM-এর নিজের দেওয়া head স্নিপেট এখানে paste করো -->
+</head<meta name="robots" content="noindex">><body>
+<h1>টেস্ট প্রোডাক্ট - ৯৯৯ টাকা</h1>
+<form id="f">
+  <input name="name" placeholder="নাম" required>
+  <input name="phone" placeholder="01XXXXXXXXX" pattern="01[3-9][0-9]{8}" required>
+  <button>অর্ডার করুন (COD)</button>
+</form>
+<p><a id="wa" href="https://wa.me/8801XXXXXXXXX" target="_blank">WhatsApp-এ জিজ্ঞেস করুন</a></p>
+<script>
+window.dataLayer = window.dataLayer || [];
+document.getElementById('f').addEventListener('submit', function(e){
+  e.preventDefault();
+  dataLayer.push({event:'order_form_submit', value:999});
+  document.body.innerHTML = '<h1>ধন্যবাদ, আমরা ফোন করে কনফার্ম করব</h1>';
+});
+document.getElementById('wa').addEventListener('click', function(){
+  dataLayer.push({event:'whatsapp_click'});
+});
+</script>
+</body></html>
